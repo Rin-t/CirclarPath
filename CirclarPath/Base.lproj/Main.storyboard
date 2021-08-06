@@ -17,21 +17,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r7Y-pP-Bmh">
-                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="177.5" y="433" width="59" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEK-J9-dsb">
+                                <rect key="frame" x="147" y="620" width="120" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.8131175102" blue="0.26555730300000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="INo-Yj-nLO"/>
+                                    <constraint firstAttribute="width" constant="120" id="MKr-QE-FEz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="スタート">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTappedStartButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e53-v5-h9F"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="KEK-J9-dsb" firstAttribute="top" secondItem="r7Y-pP-Bmh" secondAttribute="bottom" constant="157" id="A42-EE-vgF"/>
                             <constraint firstItem="r7Y-pP-Bmh" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="HEe-hh-2e6"/>
+                            <constraint firstItem="KEK-J9-dsb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Xi8-xf-ehP"/>
                             <constraint firstItem="r7Y-pP-Bmh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pGu-fV-Dcw"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="animatedCountingLabel" destination="r7Y-pP-Bmh" id="g8W-BB-MxZ"/>
+                        <outlet property="startButton" destination="KEK-J9-dsb" id="hWS-tp-Gnv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

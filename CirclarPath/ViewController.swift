@@ -7,14 +7,20 @@
 
 import UIKit
 
+private enum buttonState {
+    case idel
+    case running
+}
+
 final class ViewController: UIViewController {
     
     @IBOutlet weak var animatedCountingLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     
     private var circularProgressBarView: CircularProgressBarView!
     private var circularViewDuration: TimeInterval = 10
     private var timer: Timer?
-    private var countNumber: Int!
+    private var countNumber: Double!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,18 +31,24 @@ final class ViewController: UIViewController {
     private func setUpTimer() {
         countNumber = 10
         animatedCountingLabel.text = String(countNumber)
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(countTimer), userInfo: nil, repeats: true)
     }
     
     @objc func countTimer() {
         print("count")
-        countNumber -= 1
+        countNumber -= 0.01
         animatedCountingLabel.text = String(countNumber)
         
         if countNumber == 0 {
-            timer?.invalidate()
+            
+            countNumber = 10
+            animatedCountingLabel.text = String(countNumber)
+            circularProgressBarView.progressAnimation(duration: TimeInterval(countNumber))
         }
         
+    }
+    
+    @IBAction func didTappedStartButton(_ sender: UIButton) {
     }
     
     private func setUpCircularProgressBarView() {
@@ -50,6 +62,8 @@ final class ViewController: UIViewController {
         // add this view to the view controller
         view.addSubview(circularProgressBarView)
     }
+    
+ 
     
     
 }
